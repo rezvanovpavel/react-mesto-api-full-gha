@@ -1,0 +1,28 @@
+.avatar-button__edit-button {
+  background-repeat: no-repeat;
+  background-image: url(../../../images/pen_avatar.svg);
+  background-color: transparent;
+  background-position: center;
+  background-size: 26px;
+  border: none;
+  flex-shrink: 0;
+  min-height: 26px;
+  max-height: 26px;
+  max-width: 26px;
+  width: 100%;
+  margin: 0;
+  z-index: 3;
+  cursor: pointer;
+  padding: 0;
+  -webkit-transition: opacity 0.3s linear 0.3s;
+  -o-transition: opacity 0.3s linear 0.3s;
+  transition: opacity 0.3s linear 0.3s;
+  position: absolute;
+  top: 47px;
+  left: 47px;
+  opacity: 0;
+}
+
+.avatar-button__edit-button:hover {
+  opacity: 0.6;
+}

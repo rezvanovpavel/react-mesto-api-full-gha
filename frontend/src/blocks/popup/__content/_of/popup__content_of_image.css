@@ -1,0 +1,12 @@
+.popup__content_of_image {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  gap: 10px;
+  background: none;
+  border-radius: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: none;
+  width: auto;
+}

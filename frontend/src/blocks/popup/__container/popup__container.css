@@ -1,0 +1,16 @@
+.popup__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 34px 36px 37px 36px;
+}
+
+@media screen and (max-width: 1066px) {
+  .popup__container {
+    padding: 25px 22px;
+  }
+}

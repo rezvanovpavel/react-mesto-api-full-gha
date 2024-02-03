@@ -1,0 +1,13 @@
+.avatar {
+  height: 120px;
+  width: 120px;
+  width: 100%;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  z-index: 1;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  position: relative;
+}

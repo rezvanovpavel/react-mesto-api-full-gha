@@ -1,0 +1,10 @@
+.window__paragraph {
+  color: #ffffff;
+  text-align: center;
+  z-index: 2;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+  margin: 15px 0 0 0;
+  max-width: 358px;
+}

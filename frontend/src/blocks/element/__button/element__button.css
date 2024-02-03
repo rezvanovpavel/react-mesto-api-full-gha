@@ -1,0 +1,21 @@
+.element__button {
+  z-index: 1;
+  min-height: 19px;
+  max-height: 19px;
+  max-width: 22px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-image: url("../../../images/heart.svg");
+  border: none;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: opacity 0.3s linear 0.3s;
+  -o-transition: opacity 0.3s linear 0.3s;
+  transition: opacity 0.3s linear 0.3s;
+  cursor: pointer;
+}
+
+.element__button:hover {
+  opacity: 0.5;
+}
