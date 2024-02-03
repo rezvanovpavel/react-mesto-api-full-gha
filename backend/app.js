@@ -13,7 +13,7 @@ const { createUser, login } = require('./controllers/users');
 
 const auth = require('./middlewares/auth');
 
-const cors = require('./middlewares/cors');
+const settingsCors = require('./middlewares/settingsCors');
 
 const URL_REGEX = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/;
 
@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(requestLogger); // подключаем логгер запросов
 
-app.use(cors);
+app.use(settingsCors);
 
 app.get('/crash-test', () => {
   setTimeout(() => {
