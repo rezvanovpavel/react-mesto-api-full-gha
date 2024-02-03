@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const { celebrate, Joi } = require('celebrate');
 const { errors } = require('celebrate');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const settingsCors = require('./middlewares/settingsCors');
 
 const userRoutes = require('./routes/user');
 const cardRoutes = require('./routes/card');
@@ -12,8 +13,6 @@ const cardRoutes = require('./routes/card');
 const { createUser, login } = require('./controllers/users');
 
 const auth = require('./middlewares/auth');
-
-const settingsCors = require('./middlewares/settingsCors');
 
 const URL_REGEX = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/;
 
