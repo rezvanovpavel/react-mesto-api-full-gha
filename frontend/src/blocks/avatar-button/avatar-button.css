@@ -1,0 +1,24 @@
+.avatar-button {
+  position: relative;
+  -webkit-transition: opacity 0.3s linear 0.3s;
+  -o-transition: opacity 0.3s linear 0.3s;
+  transition: opacity 0.3s linear 0.3s;
+  cursor: pointer;
+  min-height: 120px;
+  max-width: 120px;
+  width: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 1066px) {
+  .avatar-button {
+    -ms-grid-column-align: center;
+    justify-self: center;
+  }
+}
