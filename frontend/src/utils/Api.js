@@ -95,6 +95,7 @@ class Api {
 const api = new Api({
   baseUrl: 'https://api.mesto.pavel.nomoredomainsmonster.ru',
   headers: {
+    authorization: `Bearer ${localStorage.getItem('token')}`,
     'Content-Type': 'application/json'
   }
 });
