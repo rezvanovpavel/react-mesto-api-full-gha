@@ -124,7 +124,10 @@ const getCurrentUserInfo = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('Запрашиваемый пользователь не найден');
       }
-      return res.send(user);
+      return res.send({
+        _id: user._id,
+        email: user.email,
+      });
     })
     .catch((err) => {
       if (err.name === 'CastError') {
