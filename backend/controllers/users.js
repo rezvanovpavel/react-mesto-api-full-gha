@@ -17,7 +17,10 @@ const createUser = (req, res, next) => {
       email, password: hash, name, about, avatar,
     }))
     .then((user) => res.send({
-      email: user.email, name: user.name, about: user.about, avatar: user.avatar,
+      data: {
+        _id: user._id,
+        email: user.email,
+      },
     }))
     .catch((err) => {
       if (err.code === 11000) {
