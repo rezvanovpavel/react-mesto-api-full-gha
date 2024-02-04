@@ -107,7 +107,7 @@ const login = (req, res, next) => {
         throw new UnauthorizedError('Ошибка авторизации');
       }
       const token = jwt.sign({ _id: user._id }, 'some-secret-key', { expiresIn: '7d' });
-      return res.send({ token });
+      return res.send({ jwt: token });
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
@@ -125,7 +125,7 @@ const getCurrentUserInfo = (req, res, next) => {
         throw new NotFoundError('Запрашиваемый пользователь не найден');
       }
       return res.send({
-        _id: req.user._id,
+        _id: user._id,
         email: user.email,
       });
     })
