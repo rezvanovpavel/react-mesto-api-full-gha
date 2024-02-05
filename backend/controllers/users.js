@@ -39,22 +39,6 @@ const getUsers = (req, res, next) => {
     .catch(next);
 };
 
-const getUser = (req, res, next) => {
-  User.findById(req.params.userId)
-    .then((user) => {
-      if (!user) {
-        throw new NotFoundError('Запрашиваемый пользователь не найден');
-      }
-      return res.send(user);
-    })
-    .catch((err) => {
-      if (err.name === 'CastError') {
-        next(new BadRequestError('Передан некорректный id'));
-      } else {
-        next(err);
-      }
-    });
-};
 
 const updateInfo = (req, res, next) => {
   const userId = req.user._id;
@@ -117,6 +101,24 @@ const login = (req, res, next) => {
     });
 };
 
+const getCurrentUserInfo = (req, res, next) => {
+  User.findById(req.user._id)
+    .then((user) => {
+      if (!user) {
+        throw new NotFoundError('Запрашиваемый пользователь не найден');
+      }
+      return res.send({
+         user                           /* _id: user._id, email: user.email,req.params.userId */
+      });
+    })
+    .catch((err) => {
+      if (err.name === 'CastError') {
+        next(new BadRequestError('Передан некорректный id'));
+      } else {
+        next(err);
+      }
+    });
+};
 
 module.exports = {
   getUsers, getUser, createUser, updateInfo, updateAvatar, login, getCurrentUserInfo,
