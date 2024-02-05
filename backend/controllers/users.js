@@ -100,25 +100,6 @@ const login = (req, res, next) => {
     });
 };
 
-const getCurrentUserInfo = (req, res, next) => {
-  User.findById(req.user._id)
-    .then((user) => {
-      if (!user) {
-        throw new NotFoundError('Запрашиваемый пользователь не найден');
-      }
-      return res.send({
-         user                           /* _id: user._id, email: user.email, */
-      });
-    })
-    .catch((err) => {
-      if (err.name === 'CastError') {
-        next(new BadRequestError('Передан некорректный id'));
-      } else {
-        next(err);
-      }
-    });
-};
-
 const getUser = (req, res, next) => {
   User.findById(req.params.userId)
     .then((user) => {
