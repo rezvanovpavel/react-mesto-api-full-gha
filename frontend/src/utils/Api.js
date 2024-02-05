@@ -11,7 +11,6 @@ class Api {
        method: 'GET',
        headers: this._headers,
      })
-     .then(res => console.log(res))
      .then(res => this._checkResponseStatusServer(res));
     }
 
