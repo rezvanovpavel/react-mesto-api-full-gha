@@ -39,7 +39,6 @@ const getUsers = (req, res, next) => {
     .catch(next);
 };
 
-
 const updateInfo = (req, res, next) => {
   const userId = req.user._id;
   const { name, about } = req.body;
@@ -102,14 +101,31 @@ const login = (req, res, next) => {
 };
 
 const getCurrentUserInfo = (req, res, next) => {
-  User.findById(req.params.userId)
+  User.findById(req.user._id)
     .then((user) => {
       if (!user) {
         throw new NotFoundError('Запрашиваемый пользователь не найден');
       }
       return res.send({
-         user                           /* _id: user._id, email: user.email,req.params.userId */
+         user                           /* _id: user._id, email: user.email, */
       });
+    })
+    .catch((err) => {
+      if (err.name === 'CastError') {
+        next(new BadRequestError('Передан некорректный id'));
+      } else {
+        next(err);
+      }
+    });
+};
+
+const getUser = (req, res, next) => {
+  User.findById(req.params.userId)
+    .then((user) => {
+      if (!user) {
+        throw new NotFoundError('Запрашиваемый пользователь не найден');
+      }
+      return res.send(user);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
