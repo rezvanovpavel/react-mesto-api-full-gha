@@ -35,7 +35,7 @@ const deleteCard = (req, res, next) => {
         throw new ForbiddenError('Нет прав доступа');
       }
       card.deletedOne()
-        .then(() => res.status(200).send(card))
+        .then((deleteCard) => res.send(deleteCard))
         .catch(next);
     })
     .catch((err) => {
