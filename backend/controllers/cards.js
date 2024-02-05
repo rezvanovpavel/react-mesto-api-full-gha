@@ -34,8 +34,8 @@ const deleteCard = (req, res, next) => {
       if (!card.owner.equals(req.user._id)) {
         throw new ForbiddenError('Нет прав доступа');
       }
-      card.deletedOne()
-        .then((deleteCard) => res.send(deleteCard))
+      return Card.deleteOne(card._id)
+        .then(() => res.send({ message: 'Карточка удалена' }))
         .catch(next);
     })
     .catch((err) => {
