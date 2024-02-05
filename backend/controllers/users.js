@@ -124,7 +124,7 @@ const getCurrentUserInfo = (req, res, next) => {
         throw new NotFoundError('Запрашиваемый пользователь не найден');
       }
       return res.send({
-         user                           /* _id: user._id, email: user.email, */
+        _id: user._id, email: user.email                           /* _id: user._id, email: user.email, */
       });
     })
     .catch((err) => {
