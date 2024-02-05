@@ -26,15 +26,17 @@ const getCards = (req, res, next) => {
 };
 
 const deleteCard = (req, res, next) => {
-  Card.findByIdAndDelete(req.params.cardId)
+  Card.findById(req.params.cardId)
     .then((card) => {
       if (!card) {
         throw new NotFoundError('Такой карточки не существует');
       }
-      if (card.owner.toString() !== req.user._id) {
+      if (!card.owner.equals(req.user._id)) {
         throw new ForbiddenError('Нет прав доступа');
       }
-      return res.send(card);
+      card.deletedOne()
+        .then(() => res.send({message: "Карточка удалена"}))
+        .catch(next);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
