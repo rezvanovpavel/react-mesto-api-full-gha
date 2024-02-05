@@ -19,7 +19,7 @@ const createUser = (req, res, next) => {
       email, password: hash, name, about, avatar,
     }))
     .then((user) => res.send({
-      email: user.email, name: user.name, about: user.about, avatar: user.avatar,                             /* data: {_id: user._id,email: user.email,}, */
+      email: user.email, name: user.name, about: user.about, avatar: user.avatar,
     }))
     .catch((err) => {
       if (err.code === 11000) {
@@ -107,7 +107,7 @@ const getCurrentUserInfo = (req, res, next) => {
         throw new NotFoundError('Запрашиваемый пользователь не найден');
       }
       return res.send({
-        email: user.email, name: user.name, about: user.about, avatar: user.avatar, _id: user._id,
+        _id: user._id,email: user.email,         /* data: {_id: user._id,email: user.email,}, */
       });
     })
     .catch((err) => {
