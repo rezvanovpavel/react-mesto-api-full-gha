@@ -112,5 +112,5 @@ const getUser = (req, res, next) => {
 };
 
 module.exports = {
-  getUsers, getUser, createUser, updateInfo, updateAvatar, login, getCurrentUserInfo,
+  getUsers, getUser, createUser, updateInfo, updateAvatar, login,
 };
