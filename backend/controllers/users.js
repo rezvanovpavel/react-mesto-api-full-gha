@@ -107,7 +107,7 @@ const getCurrentUserInfo = (req, res, next) => {
         throw new NotFoundError('Запрашиваемый пользователь не найден');
       }
       return res.send({
-         user                           /* _id: user._id, email: user.email, */
+        email: user.email, name: user.name, about: user.about, avatar: user.avatar, _id: user._id,                           /* _id: user._id, email: user.email, */
       });
     })
     .catch((err) => {
@@ -125,9 +125,7 @@ const getUser = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('Запрашиваемый пользователь не найден');
       }
-      return res.send({
-        email: user.email, name: user.name, about: user.about, avatar: user.avatar, _id: user._id,                           /* data: {_id: user._id,email: user.email,}, */
-      });
+      return res.send(user);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
