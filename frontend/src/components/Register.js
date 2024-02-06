@@ -19,8 +19,8 @@ function Register(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    props.onSubmit({ password, email });
-  } 
+    props.onSubmit({ email, password });
+  }
 
   return (
       <WindowAuthForm heading={"Регистрация"} onSubmit={handleSubmit} buttonnText={"Зарегистрироваться"}>
