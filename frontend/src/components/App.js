@@ -144,7 +144,7 @@ function App() {
   function handleRegisterSubmit({ password, email }) {
    register(password, email)
      .then((res) => {
-       if (res.data) {
+       if (res) {
         setIsSuccessInfoTooltip(true);
         setIsInfoTooltipOpen(true);
         navigate('/sign-in', {replace: true});
